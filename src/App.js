@@ -1,9 +1,14 @@
+import { Helmet } from "react-helmet";
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
+      <Helmet>
+        <title>My first React App</title>
+        <meta name="description" content="My first app description" />
+      </Helmet>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
