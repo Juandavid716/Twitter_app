@@ -1,15 +1,23 @@
 import { Link } from 'react-router-dom';
+import routes from './../../lib/routes'
 
-const App2 = () => {
+const Nav = () => {
+    const { restricted, unrestricted } = routes;
+
     return (
         <nav>
             <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/login">Login</Link></li>
-                <li><Link to="/signup">Sign Up</Link></li>
+                {
+                    restricted.map(({ path, title }) =>
+                        <li><Link to={path}>{title}</Link></li>)
+                }
+                {
+                    unrestricted.map(({ path, title }) =>
+                        <li><Link to={path}>{title}</Link></li>)
+                }
             </ul>
         </nav>
     );
 }
 
-export default App2;
+export default Nav;
