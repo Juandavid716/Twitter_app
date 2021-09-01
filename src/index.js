@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-snapshot";
-import "./index.css";
+import "../src/assets/styles/index.scss";
 import App from "./App";
 
 render(

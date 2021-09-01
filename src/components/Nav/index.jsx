@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import routes from "./../../lib/routes";
-
+import "./nav.scss";
 const Nav = () => {
   const { restricted, unrestricted } = routes;
 

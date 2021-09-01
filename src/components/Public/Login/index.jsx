@@ -1,6 +1,6 @@
 import Metadata from "../../../metadata/Metadata";
 import Input from "../../Input";
-
+import "./login.scss";
 const Login = () => {
   return (
     <>

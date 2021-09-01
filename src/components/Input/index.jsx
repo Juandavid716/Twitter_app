@@ -1,4 +1,4 @@
-import "./Input.css";
+import "./input.scss";
 
 const Input = ({ content, type, name }) => {
   return (

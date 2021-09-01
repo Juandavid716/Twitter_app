@@ -1,5 +1,5 @@
 import Metadata from "../../../metadata/Metadata";
-
+import "./timeline.scss";
 const Timeline = () => {
   return (
     <>

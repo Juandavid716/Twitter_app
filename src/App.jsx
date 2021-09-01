@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Nav from "./components/Nav";
+//import Nav from "./components/Nav";
 import routes from "./lib/routes";
 
 const App = () => {

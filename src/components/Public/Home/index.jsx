@@ -1,4 +1,5 @@
 import Metadata from "../../../metadata/Metadata";
+import "./home.scss";
 
 const Home = () => {
   return (
