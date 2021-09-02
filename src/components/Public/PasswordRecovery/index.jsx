@@ -1,8 +1,8 @@
 import Metadata from "../../../metadata/Metadata";
 import Page from "../../Page";
-import "./timeline.scss";
+import "./passwordRecovery.scss";
 
-const Timeline = () => {
+const PasswordRecovery = () => {
   return (
     <>
       <Metadata
@@ -10,9 +10,9 @@ const Timeline = () => {
         description="The best place to share and meet new friends"
         url=""
       />
-      <Page name="Timeline" />
+      <Page name="Password Recovery" />
     </>
   );
 };
 
-export default Timeline;
+export default PasswordRecovery;

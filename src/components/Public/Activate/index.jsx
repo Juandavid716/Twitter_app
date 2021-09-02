@@ -1,8 +1,8 @@
 import Metadata from "../../../metadata/Metadata";
 import Page from "../../Page";
-import "./timeline.scss";
+import "./activate.scss";
 
-const Timeline = () => {
+const Activate = () => {
   return (
     <>
       <Metadata
@@ -10,9 +10,9 @@ const Timeline = () => {
         description="The best place to share and meet new friends"
         url=""
       />
-      <Page name="Timeline" />
+      <Page name="Activate" />
     </>
   );
 };
 
-export default Timeline;
+export default Activate;

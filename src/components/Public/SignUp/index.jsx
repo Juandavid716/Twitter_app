@@ -1,5 +1,6 @@
 import Metadata from "../../../metadata/Metadata";
-import "./SignUp.scss";
+import "./signUp.scss";
+
 const SignUp = () => {
   return (
     <>

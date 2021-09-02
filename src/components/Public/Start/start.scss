@@ -1,0 +1,15 @@
+@import "../../../assets/styles/index.scss";
+section {
+  height: 100%;
+}
+.logo {
+  background: $twitter-color;
+  max-width: 720px;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.welcome {
+  width: 100%;
+}
