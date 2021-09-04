@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import TwitterBlueLogo from "../../../assets/images/twitter_blue_logo.png";
 import Metadata from "../../../metadata/Metadata";
 import Input from "../../Input";
