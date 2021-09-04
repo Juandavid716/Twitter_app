@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import TwitterBlueLogo from "../../../assets/images/twitter_blue_logo.png";
 import Metadata from "../../../metadata/Metadata";
 import Input from "../../Input";
 import "./login.scss";
@@ -9,11 +11,41 @@ const Login = () => {
         description="The best place to share and meet new friends"
         url=""
       />
-      <h2>Login</h2>
-      <form class="form">
-        <Input content="First Name" type="text" name="firstName" />
-        <Input content="Last Name" type="text" name="lastName" />
-      </form>
+      <main>
+        <section className="formContainer">
+          <form className="form">
+            <img
+              className="blue_logo "
+              src={TwitterBlueLogo}
+              alt="Welcome logo"
+            />
+            <span className="form__label"> My Twitter </span>
+            <h1 className="title title--modifier-margin">
+              {" "}
+              Login to your account
+            </h1>
+            <Input content="Email or Username" type="text" name="firstName" />
+            <Input content="Password" type="text" name="lastName" />
+            <Link
+              to="/passwordRecovery"
+              className="text-decoration blue"
+              style={{ margin: "28px 0px" }}
+            >
+              {" "}
+              Forgot password?
+            </Link>
+            <button className="button button__primary" type="submit">
+              Login now
+            </button>
+            <span style={{ marginTop: "38px" }}>
+              Dont have an account?{" "}
+              <a href="/signup" className="blue text-decoration">
+                Join free today{" "}
+              </a>
+            </span>
+          </form>
+        </section>
+      </main>
     </>
   );
 };

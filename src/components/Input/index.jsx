@@ -3,7 +3,7 @@ import "./input.scss";
 const Input = ({ content, type, name }) => {
   return (
     <>
-      <label for={name} className="visuallyhidden">
+      <label className="form__label" for={name}>
         {content}
       </label>
       <input type={type} name={name} id={name}></input>

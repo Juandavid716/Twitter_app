@@ -36,19 +36,12 @@
   width: 100%;
 }
 .welcome__container > img {
-  height: 53.824161529541016px;
-  width: 66.225830078125px;
   position: relative;
   left: -21px;
 }
+
 .slogan {
-  font-size: 30px;
-  font-style: normal;
-  font-weight: bold;
-  line-height: 35px;
-  letter-spacing: 0em;
   text-align: left;
-  color: #1a202c;
   position: relative;
   left: -46px;
   margin-bottom: 22px;
@@ -60,25 +53,9 @@
   align-items: center;
   width: 100%;
 }
-.button {
-  height: 50px;
-  max-width: 347px;
-  width: 90%;
-  background: #ffffff;
-  border: 1px solid $button-primary-color;
-  box-sizing: border-box;
-  border-radius: 5px;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 19px;
-  color: $button-primary-color;
-}
+
 .button__label {
   position: relative;
   left: -37px;
   margin-bottom: 9px;
-}
-#join {
-  color: $button-primary-color;
 }

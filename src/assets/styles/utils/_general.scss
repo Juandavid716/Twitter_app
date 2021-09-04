@@ -4,10 +4,12 @@ html {
   min-height: 100vh;
   margin: 0;
   font-family: "Roboto", sans-serif;
+  color: #4a5568;
 }
 main {
   display: flex;
   min-height: 100vh;
+  width: 100%;
 }
 .center {
   display: flex;
@@ -16,4 +18,61 @@ main {
 }
 .text-decoration {
   text-decoration: none;
+}
+.title {
+  font-size: 30px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 35px;
+  letter-spacing: 0em;
+  color: #1a202c;
+}
+
+.button {
+  height: 50px;
+  max-width: 347px;
+  width: 90%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+}
+.button__white {
+  border: 1px solid $button-primary-color;
+  color: $button-primary-color;
+  background: #ffffff;
+}
+.button__primary {
+  background: #1da1f2;
+  border: 1px solid $button-white-color;
+  color: $button-white-color;
+}
+.blue_logo {
+  height: 53.824161529541016px;
+  width: 66.225830078125px;
+}
+.blue {
+  color: $button-primary-color;
+}
+.formContainer {
+  width: 100%;
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+.form__label {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  margin: 11px 0px;
 }

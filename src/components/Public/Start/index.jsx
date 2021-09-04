@@ -18,20 +18,28 @@ const Start = () => {
         </section>
         <section className="welcome">
           <div className="welcome__container">
-            <img src={TwitterBlueLogo} alt="Welcome logo" />
-            <h1 className="slogan"> Welcome to Twitter</h1>
+            <img
+              className="blue_logo "
+              src={TwitterBlueLogo}
+              alt="Welcome logo"
+            />
+            <h1 className="title slogan"> Welcome to Twitter</h1>
             <div className="buttons">
               <Link
                 to="/login"
-                className="button center text-decoration"
+                className="button button__white center text-decoration"
                 style={{ marginBottom: "40px" }}
               >
                 Login now
               </Link>
               <label className="button__label">
-                Dont have an account? <span id="join">Join free today </span>{" "}
+                Dont have an account?{" "}
+                <span className="blue">Join free today </span>{" "}
               </label>
-              <Link to="/signup" className="button center text-decoration">
+              <Link
+                to="/signup"
+                className="button button__white center text-decoration"
+              >
                 Sign Up
               </Link>
             </div>
