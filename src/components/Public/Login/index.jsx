@@ -19,13 +19,16 @@ const Login = () => {
               src={TwitterBlueLogo}
               alt="Welcome logo"
             />
-            <span className="form__label"> My Twitter </span>
+            <span className="form__label form__label--modifier-margin">
+              {" "}
+              My Twitter{" "}
+            </span>
             <h1 className="title title--modifier-margin">
               {" "}
               Login to your account
             </h1>
-            <Input content="Email or Username" type="text" name="firstName" />
-            <Input content="Password" type="text" name="lastName" />
+            <Input content="Email or Username" type="text" name="email" />
+            <Input content="Password" type="text" name="password" />
             <Link
               to="/passwordRecovery"
               className="text-decoration blue"
