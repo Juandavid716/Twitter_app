@@ -1,15 +1,84 @@
 @import "../../../assets/styles/index.scss";
-section {
-  height: 100%;
+
+.container {
+  display: inline-flex;
+  width: 100%;
+}
+.flex-direction {
+  flex-direction: row;
 }
 .logo {
-  background: $twitter-color;
-  max-width: 720px;
-  width: 90%;
+  background: $button-primary-color;
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+}
+.logo > img {
+  max-width: 550px;
+  width: 90%;
 }
 .welcome {
+  max-width: 1200px;
+  height: 100vh;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.welcome__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: inherit;
+  width: 100%;
+}
+.welcome__container > img {
+  height: 53.824161529541016px;
+  width: 66.225830078125px;
+  position: relative;
+  left: -21px;
+}
+.slogan {
+  font-size: 30px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 35px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #1a202c;
+  position: relative;
+  left: -46px;
+  margin-bottom: 22px;
+  margin-top: 26px;
+}
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.button {
+  height: 50px;
+  max-width: 347px;
+  width: 90%;
+  background: #ffffff;
+  border: 1px solid $button-primary-color;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  color: $button-primary-color;
+}
+.button__label {
+  position: relative;
+  left: -37px;
+  margin-bottom: 9px;
+}
+#join {
+  color: $button-primary-color;
 }

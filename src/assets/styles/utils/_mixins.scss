@@ -1,0 +1,14 @@
+@import "./variables";
+
+@media screen and (max-width: 900px) {
+  .flex-direction {
+    flex-direction: column-reverse;
+  }
+}
+
+@media screen and (max-width: $motog4-size) {
+  .slogan,
+  .button__label {
+    left: 0;
+  }
+}
