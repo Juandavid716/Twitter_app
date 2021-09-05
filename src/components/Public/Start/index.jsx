@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Metadata from "../../../metadata/Metadata";
 import TwitterWhiteLogo from "../../../assets/images/twitter_white_logo.png";
 import TwitterBlueLogo from "../../../assets/images/twitter_blue_logo.png";
+import { AspectRatio } from "react-aspect-ratio";
 import "./start.scss";
 
 const Start = () => {
@@ -14,7 +15,9 @@ const Start = () => {
       />
       <main className="container flex-direction">
         <section className="logo">
-          <img src={TwitterWhiteLogo} alt="Twitter Logo" />
+          <AspectRatio ratio="3/4" style={{ maxWidth: "550px" }}>
+            <img src={TwitterWhiteLogo} alt="Twitter Logo" />
+          </AspectRatio>
         </section>
         <section className="welcome">
           <div className="welcome__container">
