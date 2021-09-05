@@ -3,4 +3,4 @@ User-agent: *
 Disallow: /activate
 User-agent: *
 Allow: /
-Sitemap: ./my_sitemap.xml
+Sitemap: http://localhost:3000/my_sitemap.xml
