@@ -1,11 +1,14 @@
 import React from "react";
-import { render } from "react-snapshot";
+import ReactDOM from "react-dom";
 import "../src/assets/styles/index.scss";
 import App from "./App";
+import firebaseApp from "./services/firebase";
+import { getAnalytics } from "firebase/analytics";
 
-render(
+ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
   document.getElementById("root")
 );
+getAnalytics(firebaseApp);
