@@ -29,3 +29,20 @@ Routes with * have dummy design.
 
 The design is based on [this](https://www.figma.com/file/Rax0sO6iBFdvryH7sKGNh8/Login-View-(Community)?node-id=421%3A124).
 
+## Google Analytics
+
+* Google analytics was implemented to the project. For that reason, SSR is not available.
+
+
+## Lighthouse performance
+
+### 	✅ Desktop
+<div align="center"><img src="https://i.ibb.co/HCzrpnw/desktop-perf.png" width="400px"/></div>
+
+### ✅ Mobile *
+<div align="center"><img src="https://i.ibb.co/qd7MsGZ/mobile-performance-3.png" width="400px"/></div>
+<br> </br>
+* This test was made on Incognite mode.
+
+
+
