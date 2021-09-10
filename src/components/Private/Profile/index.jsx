@@ -8,7 +8,7 @@ const Profile = () => {
       <Metadata
         title="Twitter"
         description="The best place to share and meet new friends"
-        url=""
+        url="profile"
       />
       <Page name="Profile" />
     </>

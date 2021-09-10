@@ -8,7 +8,7 @@ const Activate = () => {
       <Metadata
         title="Twitter"
         description="The best place to share and meet new friends"
-        url=""
+        path="activate"
       />
       <Page name="Activate" />
     </>
