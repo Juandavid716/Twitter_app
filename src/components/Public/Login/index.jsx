@@ -9,7 +9,7 @@ const Login = () => {
       <Metadata
         title="Twitter"
         description="The best place to share and meet new friends"
-        url=""
+        path="login"
       />
       <main>
         <section className="formContainer">

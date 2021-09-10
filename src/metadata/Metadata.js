@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet";
 
 import React from "react";
 const Metadata = ({ title, description, path }) => {
-  const url = `https://localhost:3000/${path}`;
+  const url = `https://mytwitterapp-a9860.web.app/${path}`;
 
   return (
     <Helmet

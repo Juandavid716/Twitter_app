@@ -7,7 +7,7 @@ const Home = () => {
       <Metadata
         title="Twitter"
         description="The best place to share and meet new friends"
-        url=""
+        path="home"
       />
       <h2>Home</h2>
       <p>hola mundo </p>

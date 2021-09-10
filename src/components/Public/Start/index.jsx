@@ -11,7 +11,7 @@ const Start = () => {
       <Metadata
         title="Twitter"
         description="The best place to share and meet new friends"
-        url=""
+        path=""
       />
       <main className="container flex-direction">
         <section className="logo">
