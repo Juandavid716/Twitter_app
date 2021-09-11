@@ -1,0 +1,39 @@
+@import "../../../styles/index.scss";
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin-left: auto;
+}
+.navbar .navbar__item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 34px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 19px;
+  line-height: 22px;
+  color: #333333;
+}
+.navbar .navbar__item:first-child {
+  margin-top: 35px;
+}
+.navbar .navbar__item:nth-child(2) a {
+  color: $button-primary-color;
+}
+.navbar .navbar__item a {
+  text-decoration: none;
+  color: #000000;
+}
+.navbar .navbar__item img {
+  margin-right: 1.1rem;
+  width: 21px;
+  height: 21px;
+}
+
+.navbar .navbar__item:first-child img {
+  width: 30px;
+  height: 24px;
+}
