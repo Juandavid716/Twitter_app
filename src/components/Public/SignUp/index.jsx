@@ -36,7 +36,6 @@ const SignUp = () => {
               type="text"
               name="passwordConfirmation"
             />
-
             <button
               style={{ marginTop: "34px" }}
               className="button button__primary"
