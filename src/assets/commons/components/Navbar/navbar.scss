@@ -57,9 +57,17 @@
 @media screen and (max-width: 1278px) {
   .navbar {
     width: 88px;
-    margin-left: none;
   }
   .navbar__text {
     display: none;
+  }
+  .navbar__item_container {
+    justify-content: flex-end;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .navbar {
+    width: 60px;
   }
 }

@@ -12,7 +12,7 @@ const Home = () => {
         path="home"
       />
       <main className="grid">
-        <div className="item navbar">
+        <div className="item-navbar">
           <Navbar />
         </div>
         <div className="item feed">
