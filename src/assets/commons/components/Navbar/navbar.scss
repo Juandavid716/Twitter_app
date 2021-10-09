@@ -3,7 +3,7 @@
 .navbar {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 275px;
   margin-left: auto;
 }
 .navbar .navbar__item {
@@ -27,10 +27,10 @@
   background: #ebebeb;
   border-radius: 20px;
 }
-
-.navbar__item_container:nth-child(2) {
-  margin-top: 35px;
+.navbar__item_container--modifier-hover:hover {
+  background: white;
 }
+
 .navbar .navbar__item:nth-child(2) a {
   color: $button-primary-color;
 }
@@ -43,11 +43,23 @@
   width: 26px;
   height: 23px;
 }
-.navbar > .navbar__item_container svg path {
+.navbar > .navbar__item_container:nth-child(2) svg path {
   fill: black;
 }
 
 .navbar .navbar__item:first-child img {
   width: 30px;
   height: 24px;
+}
+
+/* Mixins */
+
+@media screen and (max-width: 1278px) {
+  .navbar {
+    width: 88px;
+    margin-left: none;
+  }
+  .navbar__text {
+    display: none;
+  }
 }

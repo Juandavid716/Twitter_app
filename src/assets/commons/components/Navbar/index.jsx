@@ -14,55 +14,64 @@ import "./navbar.scss";
 const Navbar = () => {
   return (
     <div className="navbar">
-      <Link to="/" className="navbar__item">
-        <TwitterIcon />
-      </Link>
+      <div class="navbar__item_container navbar__item_container--modifier-hover">
+        <Link to="/" className="navbar__item">
+          <TwitterIcon />
+        </Link>
+      </div>
       <div class="navbar__item_container">
         <Link to="/home" className="navbar__item">
           <HomeIcon />
-          Home
+          <span className="navbar__text">Home</span>
         </Link>
       </div>
       <div class="navbar__item_container">
         <Link to="/" className="navbar__item">
           {" "}
-          <ExploreIcon /> Explore
+          <ExploreIcon />
+          <span className="navbar__text">Explore</span>
         </Link>
       </div>
       <div class="navbar__item_container">
         <Link to="/" className="navbar__item">
           {" "}
-          <NotificationIcon /> Notifications
+          <NotificationIcon />
+          <span className="navbar__text">Notifications</span>
         </Link>
       </div>
       <div class="navbar__item_container">
         <Link to="/" className="navbar__item">
           {" "}
-          <MessageIcon /> Messages
+          <MessageIcon />
+          <span className="navbar__text">Messages</span>
         </Link>
       </div>
       <div class="navbar__item_container">
         <Link to="/" className="navbar__item">
           {" "}
-          <BookmarkIcon /> Bookmarks
+          <BookmarkIcon />
+          <span className="navbar__text">Bookmarks</span>
         </Link>
       </div>
       <div class="navbar__item_container">
         <Link to="/" className="navbar__item">
           {" "}
-          <ListIcon /> Lists
+          <ListIcon />
+          <span className="navbar__text">Lists</span>
         </Link>
       </div>
       <div class="navbar__item_container">
         <Link to="/" className="navbar__item">
           {" "}
-          <ProfileIcon /> Profile
+          <ProfileIcon />
+          <span className="navbar__text">Profile</span>
         </Link>
       </div>
       <div class="navbar__item_container">
         <Link to="/" className="navbar__item">
           {" "}
-          <MoreIcon /> More
+          <MoreIcon />
+          <span className="navbar__text">More</span>
         </Link>
       </div>
 
