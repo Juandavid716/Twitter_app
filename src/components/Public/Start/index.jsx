@@ -21,11 +21,13 @@ const Start = () => {
         </section>
         <section className="welcome">
           <div className="welcome__container">
-            <img
-              className="blue_logo "
-              src={TwitterBlueLogo}
-              alt="Welcome logo"
-            />
+            <a href="/">
+              <img
+                className="blue_logo "
+                src={TwitterBlueLogo}
+                alt="Welcome logo"
+              />
+            </a>
             <h1 className="title slogan"> Welcome to Twitter</h1>
             <div className="buttons">
               <Link
@@ -37,7 +39,9 @@ const Start = () => {
               </Link>
               <label className="button__label">
                 Dont have an account?{" "}
-                <span className="blue">Join free today </span>{" "}
+                <a href="/signup" className="blue text-decoration">
+                  Join free today{" "}
+                </a>
               </label>
               <Link
                 to="/signup"

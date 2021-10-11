@@ -3,23 +3,35 @@
 .navbar {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 275px;
   margin-left: auto;
 }
+
 .navbar .navbar__item {
   display: flex;
   align-items: center;
-  margin-bottom: 34px;
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
   font-size: 19px;
   line-height: 22px;
   color: #333333;
+  text-decoration: none;
 }
-.navbar .navbar__item:first-child {
-  margin-top: 35px;
+.navbar__item_container {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  width: 70%;
 }
+.navbar__item_container:hover {
+  background: #ebebeb;
+  border-radius: 20px;
+}
+.navbar__item_container--modifier-hover:hover {
+  background: white;
+}
+
 .navbar .navbar__item:nth-child(2) a {
   color: $button-primary-color;
 }
@@ -27,13 +39,36 @@
   text-decoration: none;
   color: #000000;
 }
-.navbar .navbar__item img {
+.navbar .navbar__item svg {
   margin-right: 1.1rem;
-  width: 21px;
-  height: 21px;
+  width: 26px;
+  height: 23px;
+}
+.navbar > .navbar__item_container:nth-child(2) svg path {
+  fill: black;
 }
 
 .navbar .navbar__item:first-child img {
   width: 30px;
   height: 24px;
+}
+
+/* Mixins */
+
+@media screen and (max-width: 1278px) {
+  .navbar {
+    width: 88px;
+  }
+  .navbar__text {
+    display: none;
+  }
+  .navbar__item_container {
+    justify-content: flex-end;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .navbar {
+    width: 60px;
+  }
 }

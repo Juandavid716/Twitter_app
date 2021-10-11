@@ -14,11 +14,13 @@ const SignUp = () => {
       <main>
         <section className="formContainer">
           <form className="form" style={{ padding: "20px 0" }}>
-            <img
-              className="blue_logo "
-              src={TwitterBlueLogo}
-              alt="Welcome logo"
-            />
+            <a href="/">
+              <img
+                className="blue_logo "
+                src={TwitterBlueLogo}
+                alt="Welcome logo"
+              />
+            </a>
             <span className="form__label form__label--modifier-margin">
               {" "}
               My Twitter{" "}

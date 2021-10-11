@@ -14,11 +14,13 @@ const Login = () => {
       <main>
         <section className="formContainer">
           <form className="form">
-            <img
-              className="blue_logo "
-              src={TwitterBlueLogo}
-              alt="Welcome logo"
-            />
+            <a href="/">
+              <img
+                className="blue_logo "
+                src={TwitterBlueLogo}
+                alt="Welcome logo"
+              />
+            </a>
             <span className="form__label form__label--modifier-margin">
               {" "}
               My Twitter{" "}

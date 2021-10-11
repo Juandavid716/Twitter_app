@@ -1,0 +1,78 @@
+.tweet_container {
+  border-bottom: 1px solid rgba(229, 229, 229, 0.5);
+}
+
+.tweet_info {
+  padding: 0 32px;
+  display: flex;
+  padding-bottom: 12px;
+  padding-right: 18px;
+}
+
+.tweet_profile_information {
+  margin-top: 20px;
+}
+.tweet_profile_image {
+  margin-right: 16px;
+  margin-top: 15px;
+}
+.tweet_image {
+  max-width: 100%;
+}
+.tweet_profile_user,
+.tweet_profile_time {
+  color: #828282;
+}
+
+.tweet_profile_name {
+  font-weight: bold;
+}
+
+.tweet_profile_name,
+.tweet_profile_user,
+.tweet_profile_time {
+  margin-right: 6px;
+  font-style: normal;
+  font-size: 15px;
+  line-height: 18px;
+}
+.tweet_profile_header {
+  display: flex;
+  flex-direction: row;
+}
+.tweet_message {
+  margin-top: 8px;
+}
+.tweet_main_message {
+  display: block;
+  margin-bottom: 10px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 22px;
+  color: #333333;
+}
+.tweet_options_icons {
+  margin-right: 1%;
+}
+.tweet_options_icons:hover {
+  cursor: pointer;
+}
+.tweet_options_icons svg path:hover {
+  fill: #1da1f2;
+}
+.tweet_options {
+  display: flex;
+  justify-content: space-evenly;
+  width: 93%;
+  margin-bottom: 7px;
+}
+
+@media screen and (max-width: 360px) {
+  .tweet_options_icons {
+    margin-right: 12%;
+  }
+  .tweet_options {
+    justify-content: flex-end;
+  }
+}
