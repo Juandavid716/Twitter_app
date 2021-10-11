@@ -8,7 +8,7 @@
 
 .feed {
   border: 1px solid rgba($color: #e5e5e5, $alpha: 0.5);
-  padding: 54px 32px;
+  padding: 54px 0;
   max-width: 600px;
   width: 90%;
 }
@@ -73,6 +73,53 @@
 .search__container input#search:active {
   outline: none;
 }
+.main_trends {
+  width: 280px;
+  background: #f6f8fa;
+  border-radius: 12px;
+  margin-top: 66px;
+}
+.main_trends_item {
+  display: flex;
+  flex-direction: column;
+  padding-left: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(229, 229, 229, 0.5);
+}
+.main_trends_item > span {
+  margin-bottom: 4px;
+}
+.trendings,
+.numberTweets {
+  color: #828282;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+}
+.numberTweets {
+  font-size: 14px;
+  line-height: 16px;
+}
+.numeral {
+  color: #333333;
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: bold;
+}
+.main_trends_title {
+  display: flex;
+  justify-content: center;
+  color: #000000;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 19px;
+  line-height: 22px;
+  padding-top: 14px;
+}
+.trendings {
+  padding-top: 10px;
+}
 
 @media screen and (max-width: 1278px) {
   .item-navbar {
@@ -91,6 +138,11 @@
     width: 90%;
   }
   .trends {
+    display: none;
+  }
+}
+@media screen and (max-width: 360px) {
+  .item-navbar {
     display: none;
   }
 }
