@@ -1,19 +1,29 @@
-import { useState } from "react";
-import { login } from "../../../services/userService";
+import { useState, useContext } from "react";
+import { useHistory } from "react-router";
+import { AuthContext } from "../../../context/AuthContext";
+import { loginService } from "../../../services/userService";
 import { Link } from "react-router-dom";
 import TwitterBlueLogo from "../../../assets/images/twitter_blue_logo.png";
 import Metadata from "../../../metadata/Metadata";
 import Input from "../../Input";
 import "./login.scss";
+
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const auth = useContext(AuthContext);
+  const history = useHistory();
+
   const handleLogin = (e) => {
     e.preventDefault();
 
-    login(username, password)
-      .then((user) => {
-        console.log(user);
+    loginService(username, password)
+      .then((data) => {
+        let user = data.payload;
+        if (user.message === "ok") {
+          auth.login(user.data);
+          history.push("/home");
+        }
       })
       .catch((err) => {
         console.log(err);

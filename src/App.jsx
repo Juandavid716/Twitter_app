@@ -1,19 +1,27 @@
+import { useContext } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import routes from "./lib/routes";
+import { AuthContext } from "./context/AuthContext";
 
 const App = () => {
   const { restricted, unrestricted } = routes;
+  const { isLoggedIn } = useContext(AuthContext);
+  const isAuth = isLoggedIn();
+
   return (
-    <BrowserRouter>
-      <Switch>
-        {restricted.map(({ path, component }) => (
-          <Route exact path={path} component={component} key={path} />
-        ))}
-        {unrestricted.map(({ path, component }) => (
-          <Route exact path={path} component={component} key={path} />
-        ))}
-      </Switch>
-    </BrowserRouter>
+    <main>
+      <BrowserRouter>
+        <Switch>
+          {isAuth
+            ? restricted.map(({ path, component }, index) => (
+                <Route key={index} exact path={path} component={component} />
+              ))
+            : unrestricted.map(({ path, component }, index) => (
+                <Route key={index} exact path={path} component={component} />
+              ))}
+        </Switch>
+      </BrowserRouter>
+    </main>
   );
 };
 
