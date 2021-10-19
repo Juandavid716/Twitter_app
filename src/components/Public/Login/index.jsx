@@ -10,7 +10,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const handleLogin = (e) => {
     e.preventDefault();
-    login("juandavid7167", "Realmadrid716#")
+
+    login(username, password)
       .then((user) => {
         console.log(user);
       })
@@ -43,8 +44,20 @@ const Login = () => {
               {" "}
               Login to your account
             </h1>
-            <Input content="Email or Username" type="text" name="email" />
-            <Input content="Password" type="text" name="password" />
+            <Input
+              content="Email or Username"
+              type="text"
+              name="email"
+              setState={setUsername}
+              value={username}
+            />
+            <Input
+              content="Password"
+              type="text"
+              name="password"
+              setState={setPassword}
+              value={password}
+            />
             <Link
               to="/passwordRecovery"
               className="text-decoration blue"
