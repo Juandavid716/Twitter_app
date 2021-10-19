@@ -1,4 +1,4 @@
-const apiURL = "http://localhost:3001/api/";
+const apiURL = "http://localhost:3001/api";
 
 const get = (url, params, token) => {
   url = new URL(`${apiURL}${url}`);
@@ -23,6 +23,7 @@ const get = (url, params, token) => {
 };
 
 const post = (url, data, header, token) => {
+  console.log(apiURL);
   let dataBody = JSON.stringify(data);
   return fetch(`${apiURL}${url}`, {
     method: "POST",
@@ -46,4 +47,4 @@ const post = (url, data, header, token) => {
     .catch((err) => err);
 };
 
-export default new Api();
+export { get, post };

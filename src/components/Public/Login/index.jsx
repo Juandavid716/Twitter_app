@@ -8,8 +8,9 @@ import "./login.scss";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const handleLogin = () => {
-    login(username, password)
+  const handleLogin = (e) => {
+    e.preventDefault();
+    login("juandavid7167", "Realmadrid716#")
       .then((user) => {
         console.log(user);
       })
