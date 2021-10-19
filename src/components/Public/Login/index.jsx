@@ -1,9 +1,22 @@
+import { useState } from "react";
+import { login } from "../../../services/userService";
 import { Link } from "react-router-dom";
 import TwitterBlueLogo from "../../../assets/images/twitter_blue_logo.png";
 import Metadata from "../../../metadata/Metadata";
 import Input from "../../Input";
 import "./login.scss";
 const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const handleLogin = () => {
+    login(username, password)
+      .then((user) => {
+        console.log(user);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <>
       <Metadata
@@ -39,7 +52,11 @@ const Login = () => {
               {" "}
               Forgot password?
             </Link>
-            <button className="button button__primary" type="submit">
+            <button
+              className="button button__primary"
+              type="submit"
+              onClick={handleLogin}
+            >
               Login now
             </button>
             <span style={{ marginTop: "38px" }}>
