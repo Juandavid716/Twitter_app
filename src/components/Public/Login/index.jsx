@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext , useEffect} from "react";
 import { useHistory } from "react-router";
 import { AuthContext } from "../../../context/AuthContext";
 import { loginService } from "../../../services/userService";
@@ -12,7 +12,12 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const auth = useContext(AuthContext);
+  const isAuth = auth.isLoggedIn();
   const history = useHistory();
+
+  useEffect(() => {
+    console.log(isAuth);
+  }, [isAuth]);
 
   const handleLogin = (e) => {
     e.preventDefault();

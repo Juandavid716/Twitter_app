@@ -1,10 +1,30 @@
+import { useState } from "react";
 import Metadata from "../../../metadata/Metadata";
 import Navbar from "../../../assets/commons/components/Navbar";
 import searchIcon from "../../../assets/images/icons/search_icon.png";
 import TweetTemplate from "../TweetTemplate";
 import "./home.scss";
+import Input from "../../Input";
+import { createTweetService } from "../../../services/userService";
 
 const Home = () => {
+  const [content, setContent] = useState("");
+  const user = localStorage.getItem("user");
+
+  const createTweet = (e) => {
+    e.preventDefault();
+    createTweetService(content, JSON.parse(user).token)
+      .then((data) => {
+        let user = data;
+        console.log(user);
+        // if (user.message === "ok") {
+        //   console.log("done");
+        // }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <>
       <Metadata
@@ -18,6 +38,20 @@ const Home = () => {
         </div>
         <div className="item feed">
           <h2 style={{ padding: "0 32px", marginBottom: "27px" }}>Home</h2>
+          <Input
+            type="textarea"
+            name="createTweet"
+            id="createTweet"
+            setState={setContent}
+            value={content}
+          />
+          <button
+            className="button button__primary"
+            type="submit"
+            onClick={createTweet}
+          >
+            Create Tweet
+          </button>
           <div className="tweets">
             {" "}
             <TweetTemplate />

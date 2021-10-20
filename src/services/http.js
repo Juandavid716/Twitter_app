@@ -32,7 +32,7 @@ const post = (url, data, header, token) => {
       : {
           Accept: "application/json",
           "Content-type": "application/json",
-          Authorization: `Bearer ${token}`,
+          "x-access-token": `${token}`,
         },
     body: dataBody,
     mode: "cors",
