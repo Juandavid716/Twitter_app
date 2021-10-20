@@ -40,6 +40,7 @@ const App = () => {
         <Switch>
           {unrestricted.map(({ path, component }, index) => (
             <PublicRoute
+              key={index}
               restricted={true}
               path={path}
               component={component}
@@ -47,7 +48,7 @@ const App = () => {
             />
           ))}
           {restricted.map(({ path, component }, index) => (
-            <PrivateRoute path={path} component={component} exact />
+            <PrivateRoute path={path} component={component} exact key={index} />
           ))}
         </Switch>
       </BrowserRouter>
