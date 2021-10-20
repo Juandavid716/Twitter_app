@@ -3,7 +3,7 @@ import { createContext, useState, useEffect } from "react";
 const AuthContext = createContext();
 
 const AuthProvider = (props) => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(localStorage.getItem("user"));
 
   useEffect(() => {
     const user = localStorage.getItem("user");
@@ -16,12 +16,12 @@ const AuthProvider = (props) => {
   };
 
   const logout = () => {
-    setUser({});
+    setUser(null);
     localStorage.removeItem("user");
   };
 
   const isLoggedIn = () => {
-    return user ? !!Object.keys(user).length : false;
+    return user;
   };
 
   return (
