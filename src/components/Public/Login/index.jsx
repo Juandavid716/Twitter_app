@@ -20,6 +20,7 @@ const Login = () => {
     loginService(username, password)
       .then((data) => {
         let user = data.payload;
+        console.log(user);
         if (user.message === "ok") {
           auth.login(user.data);
           history.push("/home");

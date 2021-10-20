@@ -9,7 +9,6 @@ import { getAnalytics } from "firebase/analytics";
 ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
-      {" "}
       <App />
     </AuthProvider>
   </React.StrictMode>,
