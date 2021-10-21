@@ -1,4 +1,4 @@
-import { useState, useContext , useEffect} from "react";
+import { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router";
 import { AuthContext } from "../../../context/AuthContext";
 import { loginService } from "../../../services/userService";
@@ -69,7 +69,7 @@ const Login = () => {
             />
             <Input
               content="Password"
-              type="text"
+              type="password"
               name="password"
               setState={setPassword}
               value={password}

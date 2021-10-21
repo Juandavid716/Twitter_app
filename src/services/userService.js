@@ -1,4 +1,4 @@
-import { post } from "./http";
+import { get, post } from "./http";
 
 const loginService = (username, password) => {
   const user = { username, password };
@@ -20,9 +20,13 @@ const signupService = (
 
 const createTweetService = (content, tkn) => {
   const netTweet = { content };
-  console.log(tkn);
   const response = post("/tweets", netTweet, false, tkn);
   return response;
 };
 
-export { loginService, signupService, createTweetService };
+const getTweetsService = (tkn) => {
+  const response = get("/tweets", "", tkn);
+  return response;
+};
+
+export { loginService, signupService, createTweetService, getTweetsService };

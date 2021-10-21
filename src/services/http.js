@@ -10,6 +10,7 @@ const get = (url, params, token) => {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
+      "x-access-token": `${token}`,
     },
   })
     .then(async (response) => {

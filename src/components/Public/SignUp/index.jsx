@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 import { useHistory } from "react-router";
 import TwitterBlueLogo from "../../../assets/images/twitter_blue_logo.png";
 import Metadata from "../../../metadata/Metadata";
@@ -11,13 +11,13 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [passwordConfirmation ,setPasswordConfirmation]= useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const history = useHistory();
 
   const handleSignUp = (e) => {
     e.preventDefault();
 
-    signupService(username, password, passwordConfirmation, name , email)
+    signupService(username, password, passwordConfirmation, name, email)
       .then((data) => {
         let response = data.ok;
         if (response) {
@@ -53,11 +53,40 @@ const SignUp = () => {
               {" "}
               Create your account
             </h1>
-            <Input content="Name" type="text" name="name" setState={setName} value={name}/>
-            <Input content="Username" type="text" name="username" setState={setUsername} value={username}/>
-            <Input content="Email" type="text" name="email" setState={setEmail} value={email}/>
-            <Input content="Password" type="text" name="password" setState={setPassword} value={password}/>
-            <Input content="Password Confirmation" type="text"name="passwordConfirmation"setState={setPasswordConfirmation} value={passwordConfirmation}
+            <Input
+              content="Name"
+              type="text"
+              name="name"
+              setState={setName}
+              value={name}
+            />
+            <Input
+              content="Username"
+              type="text"
+              name="username"
+              setState={setUsername}
+              value={username}
+            />
+            <Input
+              content="Email"
+              type="text"
+              name="email"
+              setState={setEmail}
+              value={email}
+            />
+            <Input
+              content="Password"
+              type="password"
+              name="password"
+              setState={setPassword}
+              value={password}
+            />
+            <Input
+              content="Password Confirmation"
+              type="password"
+              name="passwordConfirmation"
+              setState={setPasswordConfirmation}
+              value={passwordConfirmation}
             />
             <button
               style={{ marginTop: "34px" }}

@@ -1,25 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Metadata from "../../../metadata/Metadata";
 import Navbar from "../../../assets/commons/components/Navbar";
 import searchIcon from "../../../assets/images/icons/search_icon.png";
 import TweetTemplate from "../TweetTemplate";
 import "./home.scss";
 import Input from "../../Input";
-import { createTweetService } from "../../../services/userService";
+import {
+  createTweetService,
+  getTweetsService,
+} from "../../../services/userService";
 
 const Home = () => {
   const [content, setContent] = useState("");
   const user = localStorage.getItem("user");
-
+  const [tweets, setTweets] = useState([]);
+  useEffect(() => {
+    let userLogged = localStorage.getItem("user");
+    getTweetsService(JSON.parse(userLogged).token).then((data) => {
+      let listTweets = data.payload.data;
+      setTweets(listTweets);
+    });
+  }, []);
   const createTweet = (e) => {
     e.preventDefault();
     createTweetService(content, JSON.parse(user).token)
       .then((data) => {
-        let user = data;
-        console.log(user);
-        // if (user.message === "ok") {
-        //   console.log("done");
-        // }
+        let tweet = data.payload;
+        console.log(tweet);
+        if (data.ok) {
+          setTweets([tweet, ...tweets]);
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -54,10 +64,18 @@ const Home = () => {
           </button>
           <div className="tweets">
             {" "}
-            <TweetTemplate />
-            <TweetTemplate />
-            <TweetTemplate />
-            <TweetTemplate />
+            {tweets.map((item) => {
+              let { content, user, createdAt, likes } = item;
+              return (
+                <TweetTemplate
+                  content={content}
+                  name={user.name}
+                  username={user.username}
+                  time={createdAt}
+                  likes={likes}
+                />
+              );
+            })}
           </div>
         </div>
         <div className="item trends">
