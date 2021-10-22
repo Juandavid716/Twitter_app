@@ -65,14 +65,16 @@ const Home = () => {
           <div className="tweets">
             {" "}
             {tweets.map((item) => {
-              let { content, user, createdAt, likes } = item;
+              let { content, user, createdAt, likes, _id } = item;
               return (
                 <TweetTemplate
+                  key={_id}
                   content={content}
                   name={user.name}
                   username={user.username}
                   time={createdAt}
                   likes={likes}
+                  tweetId={_id}
                 />
               );
             })}

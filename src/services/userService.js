@@ -29,4 +29,16 @@ const getTweetsService = (tkn) => {
   return response;
 };
 
-export { loginService, signupService, createTweetService, getTweetsService };
+const postLikesService = (like, tweetId, tkn) => {
+  const likes = { like, tweetId };
+  const response = post("/tweets/likes", likes, false, tkn);
+  return response;
+};
+
+export {
+  loginService,
+  signupService,
+  createTweetService,
+  getTweetsService,
+  postLikesService,
+};

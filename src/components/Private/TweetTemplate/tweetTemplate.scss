@@ -67,6 +67,12 @@
   width: 93%;
   margin-bottom: 7px;
 }
+.likeActive path {
+  fill: red;
+}
+.likeNotActive path {
+  fill: rgb(130, 130, 130);
+}
 
 @media screen and (max-width: 360px) {
   .tweet_options_icons {
