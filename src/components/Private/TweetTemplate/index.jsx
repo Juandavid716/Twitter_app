@@ -4,6 +4,7 @@ import { ReactComponent as LikeIcon } from "../../../assets/images/icons/like_ic
 import { ReactComponent as UploadIcon } from "../../../assets/images/icons/upload_icon.svg";
 import { ReactComponent as RetweetIcon } from "../../../assets/images/icons/retweet_icon.svg";
 import { ReactComponent as CommentIcon } from "../../../assets/images/icons/comment_icon.svg";
+import { ReactComponent as Arrow } from "../../../assets/images/icons/arrow.svg";
 import "./tweetTemplate.scss";
 import { postLikesService } from "../../../services/userService";
 import ReactTimeAgo from "react-time-ago";
@@ -50,6 +51,9 @@ const TweetTemplate = ({ tweetId, name, username, content, time, likes }) => {
               alt="tweet_message_image"
             /> */}
           </div>
+        </div>
+        <div className="tweet_configuration">
+          <Arrow></Arrow>
         </div>
       </div>
       <div className="tweet_options">
