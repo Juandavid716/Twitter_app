@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { ReactComponent as ProfileImage } from "../../../assets/images/icons/profile_icon_optional.svg";
 import Metadata from "../../../metadata/Metadata";
 import Navbar from "../../../assets/commons/components/Navbar";
 import searchIcon from "../../../assets/images/icons/search_icon.png";
@@ -26,6 +27,7 @@ const Home = () => {
     createTweetService(content, JSON.parse(user).token)
       .then((data) => {
         let tweet = data.payload;
+        tweet.user = JSON.parse(user);
         console.log(tweet);
         if (data.ok) {
           setTweets([tweet, ...tweets]);
@@ -47,23 +49,38 @@ const Home = () => {
           <Navbar />
         </div>
         <div className="item feed">
-          <h2 style={{ padding: "0 32px", marginBottom: "27px" }}>Home</h2>
-          <Input
-            type="textarea"
-            name="createTweet"
-            id="createTweet"
-            setState={setContent}
-            value={content}
-          />
-          <button
-            className="button button__primary"
-            type="submit"
-            onClick={createTweet}
+          <h2
+            style={{
+              padding: "0 32px",
+              marginBottom: "27px",
+              borderBottom: "1px solid rgba(229, 229, 229, 0.5)",
+              paddingBottom: "24px",
+            }}
           >
-            Create Tweet
-          </button>
+            Home
+          </h2>
+          <div className="input_information">
+            <ProfileImage className="tweet_main_profile" />
+            <Input
+              type="textarea"
+              name="createTweet"
+              placeholder="¿Qué esta pasando?"
+              id="createTweet"
+              setState={setContent}
+              value={content}
+            />
+          </div>
+          <div className="buttonTweetContainer">
+            <button
+              className="button button__primary tweet_button"
+              type="submit"
+              onClick={createTweet}
+            >
+              Tweet
+            </button>
+          </div>
+          <hr style={{ border: "1px solid rgba(229, 229, 229, 0.5)" }}></hr>
           <div className="tweets">
-            {" "}
             {tweets.map((item) => {
               let { content, user, createdAt, likes, _id } = item;
               return (

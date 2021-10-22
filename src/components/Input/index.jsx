@@ -1,6 +1,6 @@
 import "./input.scss";
 
-const Input = ({ content, type, name, setState, value }) => {
+const Input = ({ content, type, name, setState, value, placeholder }) => {
   return (
     <>
       <label className="form__label" htmlFor={name}>
@@ -11,6 +11,7 @@ const Input = ({ content, type, name, setState, value }) => {
         name={name}
         id={name}
         value={value}
+        placeholder={placeholder}
         onChange={(e) => setState(e.target.value)}
       ></input>
     </>

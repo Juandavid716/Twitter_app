@@ -6,6 +6,7 @@ import { ReactComponent as RetweetIcon } from "../../../assets/images/icons/retw
 import { ReactComponent as CommentIcon } from "../../../assets/images/icons/comment_icon.svg";
 import "./tweetTemplate.scss";
 import { postLikesService } from "../../../services/userService";
+import ReactTimeAgo from "react-time-ago";
 const TweetTemplate = ({ tweetId, name, username, content, time, likes }) => {
   const [like, setLike] = useState(false);
   const handleLikes = (e) => {
@@ -38,7 +39,7 @@ const TweetTemplate = ({ tweetId, name, username, content, time, likes }) => {
             <span className="tweet_profile_user">@{username}</span>
             <span className="tweet_profile_time">
               <span className="dot"> </span>
-              {time}
+              <ReactTimeAgo date={time} locale="en-US" timeStyle="twitter" />
             </span>
           </div>
           <div className="tweet_message">
