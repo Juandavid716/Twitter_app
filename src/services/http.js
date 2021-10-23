@@ -1,4 +1,4 @@
-const apiURL = "http://localhost:3001/api";
+import { apiURL } from "./apiRoute";
 
 const get = (url, params, token) => {
   url = new URL(`${apiURL}${url}`);
