@@ -79,6 +79,78 @@
 .likeNotActive path {
   fill: rgb(130, 130, 130);
 }
+.tweet_select_remove {
+  border: 1px solid #828282;
+  max-width: 150px;
+  width: 90%;
+  display: inline-block;
+  padding: 5px;
+  background-color: white;
+  color: red;
+}
+
+.menu {
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  text-align: left;
+}
+
+/* style for the button */
+.menu:before {
+  content: url("../../../assets/images/icons/arrow.svg");
+  color: white;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.menu:focus {
+  pointer-events: none;
+}
+
+/* If :focus detected the dropdown menu is displayed by making it visible */
+.menu:focus .menu-dropdown {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* style for the dropdown box */
+.menu-dropdown {
+  background-color: #364656;
+  max-width: 130px;
+  width: 150px;
+  margin: 3px 0 0 0;
+  padding: 10px;
+  border-radius: 3px;
+  border-radius: 3px;
+  pointer-events: auto;
+  position: absolute;
+  top: -10px;
+  left: -110px;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 1s;
+  background: white;
+  color: red;
+}
+
+/* style the links in the dropdown */
+.menu-dropdown a {
+  background: transparent;
+  border: none;
+  outline: 0;
+  display: block;
+  color: white;
+  text-decoration: none;
+  width: 160px;
+  padding: 5px;
+}
+.buttonRemoveTweet g path {
+  fill: red;
+}
 
 @media screen and (max-width: 360px) {
   .tweet_options_icons {

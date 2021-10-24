@@ -1,15 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ReactComponent as ProfileImage } from "../../../assets/images/icons/profile_icon_optional.svg";
 import { ReactComponent as LikeIcon } from "../../../assets/images/icons/like_icon.svg";
 import { ReactComponent as UploadIcon } from "../../../assets/images/icons/upload_icon.svg";
 import { ReactComponent as RetweetIcon } from "../../../assets/images/icons/retweet_icon.svg";
 import { ReactComponent as CommentIcon } from "../../../assets/images/icons/comment_icon.svg";
-import { ReactComponent as Arrow } from "../../../assets/images/icons/arrow.svg";
+import { ReactComponent as Delete } from "../../../assets/images/icons/delete.svg";
 import "./tweetTemplate.scss";
 import { postLikesService } from "../../../services/userService";
 import ReactTimeAgo from "react-time-ago";
 const TweetTemplate = ({ tweetId, name, username, content, time, likes }) => {
   const [like, setLike] = useState(false);
+  const [Username, setUsername] = useState("");
+
+  useEffect(() => {
+    let userLogged = localStorage.getItem("user");
+    setUsername(JSON.parse(userLogged).username);
+  }, []);
+
   const handleLikes = (e) => {
     e.preventDefault();
     let userLogged = localStorage.getItem("user");
@@ -17,7 +24,6 @@ const TweetTemplate = ({ tweetId, name, username, content, time, likes }) => {
     setLike(!like);
     postLikesService(like ? 1 : 0, tweetId, tkn)
       .then((data) => {
-        console.log("esto es", data, like);
         let response = data.ok;
         if (response) {
           console.log("done");
@@ -52,9 +58,21 @@ const TweetTemplate = ({ tweetId, name, username, content, time, likes }) => {
             /> */}
           </div>
         </div>
-        <div className="tweet_configuration">
-          <Arrow></Arrow>
-        </div>
+        {Username === username ? (
+          <>
+            <div className="tweet_configuration">
+              <div tabindex="0" class="menu">
+                <div class="menu-dropdown">
+                  <span onClick={() => console.log("xd")}>
+                    <Delete className="buttonRemoveTweet" /> Delete tweet
+                  </span>
+                </div>
+              </div>
+            </div>
+          </>
+        ) : (
+          <></>
+        )}
       </div>
       <div className="tweet_options">
         <div className="tweet_options_icons">
