@@ -46,5 +46,18 @@ The design is based on [this](https://www.figma.com/file/Rax0sO6iBFdvryH7sKGNh8/
 <br> </br>
 * This test was made on Incognite mode.
 
+# Second assessment
+
+For this evaluation, all the requested requirements were done except the following:
+
+
+* Eliminar comentario (solo si está autenticado) (solo lo puede hacer el creador del comentario)
+* Lista de trending 1 (deben cargar los últimos 10 tweets de una cuenta, consumiendo el endpoint que se alimenta de Twitter original, como lo hicimos en la clase)
+* Lista de trending 2 (Lista de últimos 20 tweets)
+
+Because the endpoints are not implemented in the backend.
+
+`The api was deployed and the front-end is in the same URL above.`
+
 
 
