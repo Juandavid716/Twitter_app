@@ -49,12 +49,8 @@ const Home = () => {
     console.log(value);
     deleteTweetService(tweetId, JSON.parse(user).token)
       .then((data) => {
-        let tweet = data.payload;
-
         if (data.ok) {
-          console.log(tweets);
           let tweetsFiltered = tweets.filter((item) => item._id !== tweetId);
-          console.log(tweetsFiltered);
           setTweets(tweetsFiltered);
         }
       })

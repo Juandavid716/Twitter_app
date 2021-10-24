@@ -2,10 +2,7 @@ import { apiURL } from "./apiRoute";
 
 const get = (url, params, token) => {
   url = new URL(`${apiURL}${url}`);
-  if (params)
-    Object.keys(params).forEach((key) =>
-      url.searchParams.append(key, params[key])
-    );
+
   return fetch(url, {
     method: "GET",
     headers: {

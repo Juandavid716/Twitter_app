@@ -5,9 +5,9 @@ import { ReactComponent as UploadIcon } from "../../../assets/images/icons/uploa
 import { ReactComponent as RetweetIcon } from "../../../assets/images/icons/retweet_icon.svg";
 import { ReactComponent as CommentIcon } from "../../../assets/images/icons/comment_icon.svg";
 import { ReactComponent as Delete } from "../../../assets/images/icons/delete.svg";
-import "./tweetTemplate.scss";
 import { postLikesService } from "../../../services/userService";
 import ReactTimeAgo from "react-time-ago";
+import "./tweetTemplate.scss";
 
 const TweetTemplate = ({
   tweetId,
@@ -55,11 +55,7 @@ const TweetTemplate = ({
             <span className="tweet_profile_user">@{username}</span>
             <span className="tweet_profile_time">
               <span className="dot"> </span>
-              <ReactTimeAgo
-                date={Date.parse(time)}
-                locale="en-US"
-                timeStyle="twitter"
-              />
+              <ReactTimeAgo date={Date.parse(time)} timeStyle="twitter" />
             </span>
           </div>
           <div className="tweet_message">

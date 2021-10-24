@@ -41,6 +41,15 @@ const deleteTweetService = (tweetId, tkn) => {
   return response;
 };
 
+const getTweetService = (tweetId) => {
+  const response = get(`/tweets/${tweetId}`, "", "");
+  return response;
+};
+
+const getUserService = (userId) => {
+  const response = get(`/users/${userId}`, "", "");
+  return response;
+};
 export {
   loginService,
   signupService,
@@ -48,4 +57,6 @@ export {
   getTweetsService,
   postLikesService,
   deleteTweetService,
+  getTweetService,
+  getUserService,
 };
