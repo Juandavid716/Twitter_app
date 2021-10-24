@@ -50,10 +50,17 @@ const getUserService = (userId) => {
   const response = get(`/users/${userId}`, "", "");
   return response;
 };
+
+const createCommentService = (comment, tweetId, tkn) => {
+  const newComment = { comment, tweetId };
+  const response = post("/tweets/comments", newComment, false, tkn);
+  return response;
+};
 export {
   loginService,
   signupService,
   createTweetService,
+  createCommentService,
   getTweetsService,
   postLikesService,
   deleteTweetService,

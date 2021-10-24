@@ -1,15 +1,28 @@
 import Metadata from "../../../metadata/Metadata";
 import Navbar from "../../../assets/commons/components/Navbar";
 import TweetTemplate from "../TweetTemplate";
+import { ReactComponent as ProfileImage } from "../../../assets/images/icons/profile_icon_optional.svg";
 import searchIcon from "../../../assets/images/icons/search_icon.png";
 import { useParams } from "react-router-dom";
-import { getTweetService, getUserService } from "../../../services/userService";
+import {
+  getTweetsService,
+  getTweetService,
+  getUserService,
+  createCommentService,
+} from "../../../services/userService";
+import { useHistory } from "react-router";
 import { useEffect, useState } from "react";
+import Input from "../../Input";
 import Swal from "sweetalert2";
 import "./tweet.scss";
+
 const Tweet = () => {
   const [tweet, setTweet] = useState({});
+  const [content, setContent] = useState("");
   const [loading, setLoading] = useState(true);
+  const [subLoading, setSubLoading] = useState(true);
+  const [mainComments, setComments] = useState([]);
+  const history = useHistory();
   let { id } = useParams();
 
   useEffect(() => {
@@ -29,10 +42,45 @@ const Tweet = () => {
         };
         setLoading(true);
         setTweet(tw);
+        setComments(comments);
         setLoading(false);
       });
     });
   }, []);
+
+  // useEffect(() => {
+  //   let userLogged = localStorage.getItem("user");
+  //   let tkn = JSON.parse(userLogged).token;
+  //   getTweetsService(JSON.parse(userLogged).token).then((data) => {
+  //     let listTweets = data.payload.data;
+
+  //     let result = listTweets.filter((item) => {
+  //       if (id === item["_id"]) {
+  //         return item;
+  //       }
+  //     });
+  //     setSubLoading(true);
+  //     setComments(result.comments);
+  //     setSubLoading(false);
+  //   });
+  // }, []);
+
+  const createComment = (e) => {
+    e.preventDefault();
+    let userLogged = localStorage.getItem("user");
+    let tkn = JSON.parse(userLogged).token;
+    createCommentService(content, id, tkn)
+      .then((data) => {
+        let comment = data.payload;
+        console.log(comment);
+        if (data.ok) {
+          history.go(0);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <>
@@ -56,11 +104,49 @@ const Tweet = () => {
                 time={tweet.createdAt}
                 likes={tweet.likes}
                 tweetId={tweet._id}
+                isComment={false}
                 // deleteTweet={deleteTweet}
               />
             ) : (
               <> </>
             )}
+          </div>
+          <div className="input_information" style={{ paddingTop: "10px" }}>
+            <ProfileImage className="tweet_main_profile" />
+            <Input
+              type="textarea"
+              name="createTweet"
+              placeholder="Tweet your answer"
+              id="createTweet"
+              setState={setContent}
+              value={content}
+            />
+          </div>
+          <div className="buttonTweetContainer">
+            <button
+              className="button button__primary tweet_button"
+              type="submit"
+              onClick={createComment}
+            >
+              Tweet
+            </button>
+          </div>
+          <div className="tweets">
+            {mainComments.map((item) => {
+              let { comment, user, _id } = item;
+              return (
+                <TweetTemplate
+                  key={_id}
+                  content={comment}
+                  name={user.name}
+                  username={user.username}
+                  time={new Date()}
+                  tweetId={_id}
+                  isComment={true}
+                  // deleteTweet={deleteTweet}
+                />
+              );
+            })}
           </div>
         </div>
         <div className="item trends">

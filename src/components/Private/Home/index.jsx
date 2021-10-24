@@ -85,7 +85,7 @@ const Home = () => {
             <Input
               type="textarea"
               name="createTweet"
-              placeholder="¿Qué esta pasando?"
+              placeholder="What's happening?"
               id="createTweet"
               setState={setContent}
               value={content}
@@ -114,6 +114,7 @@ const Home = () => {
                   likes={likes}
                   tweetId={_id}
                   deleteTweet={deleteTweet}
+                  isComment={false}
                 />
               );
             })}

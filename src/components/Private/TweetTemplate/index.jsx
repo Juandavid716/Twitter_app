@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { ReactComponent as ProfileImage } from "../../../assets/images/icons/profile_icon_optional.svg";
 import { ReactComponent as LikeIcon } from "../../../assets/images/icons/like_icon.svg";
 import { ReactComponent as UploadIcon } from "../../../assets/images/icons/upload_icon.svg";
@@ -17,6 +18,7 @@ const TweetTemplate = ({
   time,
   likes,
   deleteTweet,
+  isComment,
 }) => {
   const [like, setLike] = useState(false);
   const [Username, setUsername] = useState("");
@@ -51,11 +53,20 @@ const TweetTemplate = ({
         </div>
         <div className="tweet_profile_information">
           <div className="tweet_profile_header">
-            <span className="tweet_profile_name">{name}</span>
-            <span className="tweet_profile_user">@{username}</span>
+            <span className="tweet_profile_name">
+              {" "}
+              {!isComment ? name : <span> Comment </span>}
+            </span>
+            <span className="tweet_profile_user">
+              {!isComment ? "@" + username : <span> </span>}{" "}
+            </span>
             <span className="tweet_profile_time">
               <span className="dot"> </span>
-              <ReactTimeAgo date={Date.parse(time)} timeStyle="twitter" />
+              {!isComment ? (
+                <ReactTimeAgo date={Date.parse(time)} timeStyle="twitter" />
+              ) : (
+                <></>
+              )}
             </span>
           </div>
           <div className="tweet_message">
@@ -83,26 +94,32 @@ const TweetTemplate = ({
           <></>
         )}
       </div>
-      <div className="tweet_options">
-        <div className="tweet_options_icons">
-          <CommentIcon />
+      {!isComment ? (
+        <div className="tweet_options">
+          <div className="tweet_options_icons">
+            <Link to={`/tweets/${tweetId}`}>
+              <CommentIcon />{" "}
+            </Link>
+          </div>
+          <div className="tweet_options_icons">
+            <RetweetIcon />
+          </div>
+          <div className="tweet_options_icons">
+            <LikeIcon
+              className={like ? "likeActive" : "likeNotActive"}
+              onClick={handleLikes}
+            />{" "}
+            <span style={{ marginLeft: "10px" }}>
+              {Number(likes) + (like ? Number(1) : Number(0))}
+            </span>
+          </div>
+          <div className="tweet_options_icons">
+            <UploadIcon />
+          </div>
         </div>
-        <div className="tweet_options_icons">
-          <RetweetIcon />
-        </div>
-        <div className="tweet_options_icons">
-          <LikeIcon
-            className={like ? "likeActive" : "likeNotActive"}
-            onClick={handleLikes}
-          />{" "}
-          <span style={{ marginLeft: "10px" }}>
-            {Number(likes) + (like ? Number(1) : Number(0))}
-          </span>
-        </div>
-        <div className="tweet_options_icons">
-          <UploadIcon />
-        </div>
-      </div>
+      ) : (
+        <> </>
+      )}
     </div>
   );
 };
