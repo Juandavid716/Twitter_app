@@ -29,6 +29,11 @@ const getTweetsService = (tkn) => {
   return response;
 };
 
+const getUsersService = (tkn) => {
+  const response = get("/users", "", tkn);
+  return response;
+};
+
 const postLikesService = (like, tweetId, tkn) => {
   const likes = { like, tweetId };
   const response = post("/tweets/likes", likes, false, tkn);
@@ -68,6 +73,7 @@ export {
   createTweetService,
   createCommentService,
   getTweetsService,
+  getUsersService,
   postLikesService,
   deleteTweetService,
   getTweetService,

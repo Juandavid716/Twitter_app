@@ -13,3 +13,17 @@
     left: 0;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .profile_section {
+    .birthdayInfo,
+    .dateJoined,
+    .numberFollow {
+      margin-bottom: 10px;
+    }
+    .numberFollow {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+}

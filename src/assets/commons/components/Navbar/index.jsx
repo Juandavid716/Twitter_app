@@ -61,7 +61,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar__item_container">
-        <Link to="/" className="navbar__item">
+        <Link to="/profile" className="navbar__item">
           {" "}
           <ProfileIcon />
           <span className="navbar__text">Profile</span>

@@ -1,0 +1,62 @@
+.profile_section {
+  .feed--padding {
+    padding-top: 16px;
+  }
+  .input_information > svg {
+    max-width: 130px;
+    width: 90%;
+    max-height: 130px;
+    height: 90%;
+  }
+  .profile_header_image {
+    width: 100%;
+    height: 60px;
+  }
+  .personalInformation {
+    padding-left: 14px;
+  }
+  .name {
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+  }
+  .username {
+    font-style: normal;
+    font-size: 15px;
+    line-height: 18px;
+    color: #828282;
+  }
+  .profile_description {
+    margin: 16px 0px;
+  }
+  .birthdayInfo {
+    display: flex;
+  }
+  .birthdayInfo > div {
+    display: flex;
+    align-items: center;
+  }
+  .cityInfo {
+    margin-right: 8px;
+  }
+  .numberFollow {
+    display: flex;
+    margin-top: 8px;
+  }
+  .following,
+  .followers {
+    font-weight: bold;
+    margin-right: 12px;
+  }
+  .following span,
+  .followers span {
+    font-weight: 400;
+  }
+  .profile_header_image > img {
+    width: 100%;
+    height: 154px;
+    position: relative;
+    top: -15px;
+    z-index: -1;
+  }
+}
