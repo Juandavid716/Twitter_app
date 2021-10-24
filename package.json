@@ -19,6 +19,7 @@
     "react-snapshot": "^1.3.0",
     "react-time-ago": "^7.1.3",
     "sass": "^1.38.2",
+    "sweetalert2": "^11.1.9",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

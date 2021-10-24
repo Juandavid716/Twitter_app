@@ -1,4 +1,4 @@
-import { get, post } from "./http";
+import { get, post, deleteRequest } from "./http";
 
 const loginService = (username, password) => {
   const user = { username, password };
@@ -35,10 +35,17 @@ const postLikesService = (like, tweetId, tkn) => {
   return response;
 };
 
+const deleteTweetService = (tweetId, tkn) => {
+  const tweet = { tweetId };
+  const response = deleteRequest("/tweets", tweet, false, tkn);
+  return response;
+};
+
 export {
   loginService,
   signupService,
   createTweetService,
   getTweetsService,
   postLikesService,
+  deleteTweetService,
 };

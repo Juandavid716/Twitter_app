@@ -48,4 +48,29 @@ const post = (url, data, header, token) => {
     .catch((err) => err);
 };
 
-export { get, post };
+const deleteRequest = (url, data, header, token) => {
+  console.log(apiURL);
+  let dataBody = JSON.stringify(data);
+  return fetch(`${apiURL}${url}`, {
+    method: "DELETE",
+    headers: header
+      ? header
+      : {
+          Accept: "application/json",
+          "Content-type": "application/json",
+          "x-access-token": `${token}`,
+        },
+    body: dataBody,
+    mode: "cors",
+  })
+    .then(async (response) => {
+      if (response.status === 401) {
+        return response;
+      }
+      response.payload = await response.json();
+      return response;
+    })
+    .catch((err) => err);
+};
+
+export { get, post, deleteRequest };

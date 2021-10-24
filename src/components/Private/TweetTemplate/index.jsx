@@ -8,7 +8,16 @@ import { ReactComponent as Delete } from "../../../assets/images/icons/delete.sv
 import "./tweetTemplate.scss";
 import { postLikesService } from "../../../services/userService";
 import ReactTimeAgo from "react-time-ago";
-const TweetTemplate = ({ tweetId, name, username, content, time, likes }) => {
+
+const TweetTemplate = ({
+  tweetId,
+  name,
+  username,
+  content,
+  time,
+  likes,
+  deleteTweet,
+}) => {
   const [like, setLike] = useState(false);
   const [Username, setUsername] = useState("");
 
@@ -46,7 +55,11 @@ const TweetTemplate = ({ tweetId, name, username, content, time, likes }) => {
             <span className="tweet_profile_user">@{username}</span>
             <span className="tweet_profile_time">
               <span className="dot"> </span>
-              <ReactTimeAgo date={time} locale="en-US" timeStyle="twitter" />
+              <ReactTimeAgo
+                date={Date.parse(time)}
+                locale="en-US"
+                timeStyle="twitter"
+              />
             </span>
           </div>
           <div className="tweet_message">
@@ -61,9 +74,9 @@ const TweetTemplate = ({ tweetId, name, username, content, time, likes }) => {
         {Username === username ? (
           <>
             <div className="tweet_configuration">
-              <div tabindex="0" class="menu">
-                <div class="menu-dropdown">
-                  <span onClick={() => console.log("xd")}>
+              <div tabIndex="0" className="menu">
+                <div className="menu-dropdown">
+                  <span onClick={() => deleteTweet(tweetId)}>
                     <Delete className="buttonRemoveTweet" /> Delete tweet
                   </span>
                 </div>

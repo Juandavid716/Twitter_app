@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Swal from "sweetalert2";
 import { ReactComponent as ProfileImage } from "../../../assets/images/icons/profile_icon_optional.svg";
 import Metadata from "../../../metadata/Metadata";
 import Navbar from "../../../assets/commons/components/Navbar";
@@ -9,6 +10,7 @@ import Input from "../../Input";
 import {
   createTweetService,
   getTweetsService,
+  deleteTweetService,
 } from "../../../services/userService";
 
 const Home = () => {
@@ -31,6 +33,29 @@ const Home = () => {
         console.log(tweet);
         if (data.ok) {
           setTweets([tweet, ...tweets]);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const showAlertTweetRemoved = () => {
+    Swal.fire("Good job!", "You clicked the button!", "success");
+  };
+
+  const deleteTweet = (value) => {
+    let tweetId = value;
+    console.log(value);
+    deleteTweetService(tweetId, JSON.parse(user).token)
+      .then((data) => {
+        let tweet = data.payload;
+
+        if (data.ok) {
+          console.log(tweets);
+          let tweetsFiltered = tweets.filter((item) => item._id !== tweetId);
+          console.log(tweetsFiltered);
+          setTweets(tweetsFiltered);
         }
       })
       .catch((err) => {
@@ -92,6 +117,7 @@ const Home = () => {
                   time={createdAt}
                   likes={likes}
                   tweetId={_id}
+                  deleteTweet={deleteTweet}
                 />
               );
             })}
