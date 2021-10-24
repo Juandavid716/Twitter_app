@@ -51,9 +51,15 @@ const getUserService = (userId) => {
   return response;
 };
 
-const createCommentService = (comment, tweetId, tkn) => {
-  const newComment = { comment, tweetId };
+const createCommentService = (commentId, tweetId, tkn) => {
+  const newComment = { commentId, tweetId };
   const response = post("/tweets/comments", newComment, false, tkn);
+  return response;
+};
+
+const deleteCommentService = (tweetId, tkn) => {
+  const tweet = { tweetId };
+  const response = deleteRequest("/tweets/comments", tweet, false, tkn);
   return response;
 };
 export {
@@ -66,4 +72,5 @@ export {
   deleteTweetService,
   getTweetService,
   getUserService,
+  deleteCommentService,
 };

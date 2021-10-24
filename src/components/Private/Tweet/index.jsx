@@ -6,8 +6,7 @@ import searchIcon from "../../../assets/images/icons/search_icon.png";
 import { useParams } from "react-router-dom";
 import {
   getTweetsService,
-  getTweetService,
-  getUserService,
+  deleteCommentService,
   createCommentService,
 } from "../../../services/userService";
 import { useHistory } from "react-router";
@@ -24,51 +23,50 @@ const Tweet = () => {
   const [mainComments, setComments] = useState([]);
   const history = useHistory();
   let { id } = useParams();
-
-  useEffect(() => {
-    getTweetService(id).then((data) => {
-      let { comments, content, createdAt, likes, user, _id } = data.payload;
-      getUserService(user).then((data) => {
-        let { username, name } = data.payload;
-        let tw = {
-          comments,
-          content,
-          createdAt,
-          likes,
-          user,
-          _id,
-          username,
-          name,
-        };
-        setLoading(true);
-        setTweet(tw);
-        setComments(comments);
-        setLoading(false);
-      });
-    });
-  }, []);
-
+  let userLogged = localStorage.getItem("user");
+  let tkn = JSON.parse(userLogged).token;
   // useEffect(() => {
-  //   let userLogged = localStorage.getItem("user");
-  //   let tkn = JSON.parse(userLogged).token;
-  //   getTweetsService(JSON.parse(userLogged).token).then((data) => {
-  //     let listTweets = data.payload.data;
-
-  //     let result = listTweets.filter((item) => {
-  //       if (id === item["_id"]) {
-  //         return item;
-  //       }
+  //   getTweetService(id).then((data) => {
+  //     let { comments, content, createdAt, likes, user, _id } = data.payload;
+  //     getUserService(user).then((data) => {
+  //       let { username, name } = data.payload;
+  //       let tw = {
+  //         comments,
+  //         content,
+  //         createdAt,
+  //         likes,
+  //         user,
+  //         _id,
+  //         username,
+  //         name,
+  //       };
+  //       setLoading(true);
+  //       setTweet(tw);
+  //       setComments(comments);
+  //       setLoading(false);
   //     });
-  //     setSubLoading(true);
-  //     setComments(result.comments);
-  //     setSubLoading(false);
   //   });
   // }, []);
 
-  const createComment = (e) => {
-    e.preventDefault();
+  useEffect(() => {
     let userLogged = localStorage.getItem("user");
     let tkn = JSON.parse(userLogged).token;
+    getTweetsService(tkn).then((data) => {
+      let listTweets = data.payload.data;
+      let prevComments = [];
+      listTweets.map((item) => {
+        if (id === item["_id"]) {
+          prevComments.unshift(item);
+        }
+      });
+      console.log(prevComments);
+      setComments(prevComments[0].comments);
+    });
+  }, []);
+
+  const createComment = (e) => {
+    e.preventDefault();
+
     createCommentService(content, id, tkn)
       .then((data) => {
         let comment = data.payload;
@@ -81,6 +79,19 @@ const Tweet = () => {
         console.log(err);
       });
   };
+
+  // const deleteComment = (value) => {
+  //   let tweetId = value;
+  //   deleteCommentService(id, tweetId, JSON.parse(userLogged).token)
+  //     .then((data) => {
+  //       if (data.ok) {
+  //         history.go(0);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   return (
     <>
@@ -143,7 +154,7 @@ const Tweet = () => {
                   time={new Date()}
                   tweetId={_id}
                   isComment={true}
-                  // deleteTweet={deleteTweet}
+                  // deleteComment={deleteComment}
                 />
               );
             })}

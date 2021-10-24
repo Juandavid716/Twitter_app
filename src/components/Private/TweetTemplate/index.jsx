@@ -18,6 +18,7 @@ const TweetTemplate = ({
   time,
   likes,
   deleteTweet,
+  deleteComment,
   isComment,
 }) => {
   const [like, setLike] = useState(false);
@@ -53,13 +54,8 @@ const TweetTemplate = ({
         </div>
         <div className="tweet_profile_information">
           <div className="tweet_profile_header">
-            <span className="tweet_profile_name">
-              {" "}
-              {!isComment ? name : <span> Comment </span>}
-            </span>
-            <span className="tweet_profile_user">
-              {!isComment ? "@" + username : <span> </span>}{" "}
-            </span>
+            <span className="tweet_profile_name"> {name}</span>
+            <span className="tweet_profile_user">@{username} </span>
             <span className="tweet_profile_time">
               <span className="dot"> </span>
               {!isComment ? (
@@ -83,9 +79,16 @@ const TweetTemplate = ({
             <div className="tweet_configuration">
               <div tabIndex="0" className="menu">
                 <div className="menu-dropdown">
-                  <span onClick={() => deleteTweet(tweetId)}>
-                    <Delete className="buttonRemoveTweet" /> Delete tweet
-                  </span>
+                  {!isComment ? (
+                    <span onClick={() => deleteTweet(tweetId)}>
+                      <Delete className="buttonRemoveTweet" /> Delete tweet
+                    </span>
+                  ) : (
+                    <></>
+                    // <span onClick={() => deleteComment(tweetId)}>
+                    //   <Delete className="buttonRemoveTweet" /> Delete comment
+                    // </span>
+                  )}
                 </div>
               </div>
             </div>
