@@ -9,17 +9,16 @@ import {
   deleteCommentService,
   createCommentService,
 } from "../../../services/userService";
+import Swal from "sweetalert2";
 import { useHistory } from "react-router";
 import { useEffect, useState } from "react";
 import Input from "../../Input";
-import Swal from "sweetalert2";
 import "./tweet.scss";
 
 const Tweet = () => {
   const [tweet, setTweet] = useState({});
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(true);
-  const [subLoading, setSubLoading] = useState(true);
   const [mainComments, setComments] = useState([]);
   const history = useHistory();
   let { id } = useParams();
@@ -59,7 +58,6 @@ const Tweet = () => {
           prevComments.unshift(item);
         }
       });
-      console.log(prevComments);
       setComments(prevComments[0].comments);
     });
   }, []);
@@ -69,14 +67,16 @@ const Tweet = () => {
 
     createCommentService(content, id, tkn)
       .then((data) => {
-        let comment = data.payload;
-        console.log(comment);
         if (data.ok) {
           history.go(0);
         }
       })
       .catch((err) => {
-        console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something is wrong. Try again.",
+        });
       });
   };
 

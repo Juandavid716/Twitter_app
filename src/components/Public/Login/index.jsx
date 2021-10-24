@@ -1,5 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../../context/AuthContext";
 import { loginService } from "../../../services/userService";
 import { Link } from "react-router-dom";
@@ -12,12 +13,7 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const auth = useContext(AuthContext);
-  const isAuth = auth.isLoggedIn();
   const history = useHistory();
-
-  useEffect(() => {
-    console.log(isAuth);
-  }, [isAuth]);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -25,14 +21,31 @@ const Login = () => {
     loginService(username, password)
       .then((data) => {
         let user = data.payload;
-        console.log(user);
         if (user.message === "ok") {
           auth.login(user.data);
-          history.push("/home");
+          Swal.fire(
+            "Good job!",
+            "you have successfully logged in",
+            "success"
+          ).then(function (result) {
+            if (result.value) {
+              history.push("/home");
+            }
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Wrong email or password",
+          });
         }
       })
       .catch((err) => {
-        console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something is wrong on the server. Please wait until it is available",
+        });
       });
   };
   return (

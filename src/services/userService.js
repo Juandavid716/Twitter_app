@@ -51,8 +51,8 @@ const getUserService = (userId) => {
   return response;
 };
 
-const createCommentService = (commentId, tweetId, tkn) => {
-  const newComment = { commentId, tweetId };
+const createCommentService = (comment, tweetId, tkn) => {
+  const newComment = { comment, tweetId };
   const response = post("/tweets/comments", newComment, false, tkn);
   return response;
 };

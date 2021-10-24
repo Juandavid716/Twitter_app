@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import { ReactComponent as ProfileImage } from "../../../assets/images/icons/profile_icon_optional.svg";
 import { ReactComponent as LikeIcon } from "../../../assets/images/icons/like_icon.svg";
 import { ReactComponent as UploadIcon } from "../../../assets/images/icons/upload_icon.svg";
@@ -18,7 +19,6 @@ const TweetTemplate = ({
   time,
   likes,
   deleteTweet,
-  deleteComment,
   isComment,
 }) => {
   const [like, setLike] = useState(false);
@@ -35,14 +35,13 @@ const TweetTemplate = ({
     let tkn = JSON.parse(userLogged).token;
     setLike(!like);
     postLikesService(like ? 1 : 0, tweetId, tkn)
-      .then((data) => {
-        let response = data.ok;
-        if (response) {
-          console.log("done");
-        }
-      })
+      .then((data) => {})
       .catch((err) => {
-        console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something is wrong. Try again.",
+        });
       });
   };
 

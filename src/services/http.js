@@ -21,7 +21,6 @@ const get = (url, params, token) => {
 };
 
 const post = (url, data, header, token) => {
-  console.log(apiURL);
   let dataBody = JSON.stringify(data);
   return fetch(`${apiURL}${url}`, {
     method: "POST",
@@ -46,7 +45,6 @@ const post = (url, data, header, token) => {
 };
 
 const deleteRequest = (url, data, header, token) => {
-  console.log(apiURL);
   let dataBody = JSON.stringify(data);
   return fetch(`${apiURL}${url}`, {
     method: "DELETE",

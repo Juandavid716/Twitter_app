@@ -30,32 +30,48 @@ const Home = () => {
       .then((data) => {
         let tweet = data.payload;
         tweet.user = JSON.parse(user);
-        console.log(tweet);
         if (data.ok) {
           setTweets([tweet, ...tweets]);
         }
       })
       .catch((err) => {
-        console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something is wrong. Your tweet could not be created. Try again.",
+        });
       });
-  };
-
-  const showAlertTweetRemoved = () => {
-    Swal.fire("Good job!", "You clicked the button!", "success");
   };
 
   const deleteTweet = (value) => {
     let tweetId = value;
-    console.log(value);
+
     deleteTweetService(tweetId, JSON.parse(user).token)
       .then((data) => {
         if (data.ok) {
           let tweetsFiltered = tweets.filter((item) => item._id !== tweetId);
           setTweets(tweetsFiltered);
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Your tweet has been deleted",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something is wrong. Your tweet could not be deleted. Try again.",
+          });
         }
       })
       .catch((err) => {
-        console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something is wrong. Your tweet could not be deleted. Try again.",
+        });
       });
   };
   return (
@@ -93,8 +109,13 @@ const Home = () => {
           </div>
           <div className="buttonTweetContainer">
             <button
-              className="button button__primary tweet_button"
+              className={
+                content.length > 0
+                  ? "button button__primary tweet_button"
+                  : "button button button__primary  tweet_button button_inactive"
+              }
               type="submit"
+              disabled={content.length === 0 ? true : false}
               onClick={createTweet}
             >
               Tweet

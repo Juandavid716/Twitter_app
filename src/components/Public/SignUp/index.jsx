@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useHistory } from "react-router";
+import Swal from "sweetalert2";
 import TwitterBlueLogo from "../../../assets/images/twitter_blue_logo.png";
 import Metadata from "../../../metadata/Metadata";
 import { signupService } from "../../../services/userService";
@@ -21,11 +22,32 @@ const SignUp = () => {
       .then((data) => {
         let response = data.ok;
         if (response) {
-          history.push("/login");
+          Swal.fire(
+            "Good job!",
+            "you have successfully registered",
+            "success"
+          ).then(function (result) {
+            if (result.value) {
+              history.push("/login");
+            }
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Please input all the fields or enter a valid information",
+            footer:
+              "Don't forget that the username must have numbers while the password must be greater than 6 digits , with uppercase, lowercase letters and special characters.",
+          });
         }
       })
       .catch((err) => {
-        console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something is wrong here",
+          footer: "Please wait until the site is available",
+        });
       });
   };
   return (
