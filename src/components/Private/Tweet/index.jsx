@@ -6,6 +6,8 @@ import searchIcon from "../../../assets/images/icons/search_icon.png";
 import { useParams } from "react-router-dom";
 import {
   getTweetsService,
+  getTweetService,
+  getUserService,
   deleteCommentService,
   createCommentService,
 } from "../../../services/userService";
@@ -24,28 +26,28 @@ const Tweet = () => {
   let { id } = useParams();
   let userLogged = localStorage.getItem("user");
   let tkn = JSON.parse(userLogged).token;
-  // useEffect(() => {
-  //   getTweetService(id).then((data) => {
-  //     let { comments, content, createdAt, likes, user, _id } = data.payload;
-  //     getUserService(user).then((data) => {
-  //       let { username, name } = data.payload;
-  //       let tw = {
-  //         comments,
-  //         content,
-  //         createdAt,
-  //         likes,
-  //         user,
-  //         _id,
-  //         username,
-  //         name,
-  //       };
-  //       setLoading(true);
-  //       setTweet(tw);
-  //       setComments(comments);
-  //       setLoading(false);
-  //     });
-  //   });
-  // }, []);
+  useEffect(() => {
+    getTweetService(id).then((data) => {
+      let { comments, content, createdAt, likes, user, _id } = data.payload;
+      getUserService(user).then((data) => {
+        let { username, name } = data.payload;
+        let tw = {
+          comments,
+          content,
+          createdAt,
+          likes,
+          user,
+          _id,
+          username,
+          name,
+        };
+        setLoading(true);
+        setTweet(tw);
+
+        setLoading(false);
+      });
+    });
+  }, []);
 
   useEffect(() => {
     let userLogged = localStorage.getItem("user");
