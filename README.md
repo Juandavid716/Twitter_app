@@ -57,6 +57,11 @@ For this evaluation, all the requested requirements were done except the followi
 
 Because the endpoints are not implemented in the backend.
 
+## Lighthouse performance
+
+### 	✅ Desktop
+<div align="center"><img src="https://i.ibb.co/pypf4Kh/desktop-second.png" width="400px"/></div>
+<br> </br>
 `The api was deployed and the front-end is in the same URL above.`
 
 
